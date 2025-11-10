@@ -1,0 +1,6 @@
+@CommSchool_Final_Project_2_HostAddress = http://localhost:5120
+
+GET {{CommSchool_Final_Project_2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
