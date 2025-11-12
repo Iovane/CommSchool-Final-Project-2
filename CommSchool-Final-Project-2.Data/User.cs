@@ -10,8 +10,9 @@ public class User
     public int Age { get; set; }
     public string Mail { get; set; }
     public double MonthlyIncome { get; set; }
-    public bool IsBlocked { get; set; } = false;
+    public bool IsBlocked { get; set; }
     public string Role { get; set; }
+    public List<Loan> Loan { get; set; } = [];
 }
 
 public static class Role

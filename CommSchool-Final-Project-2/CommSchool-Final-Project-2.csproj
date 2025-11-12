@@ -21,7 +21,6 @@
       <Folder Include="Helpers\" />
       <Folder Include="Middlewares\" />
       <Folder Include="Services\" />
-      <Folder Include="Validators\" />
     </ItemGroup>
 
     <ItemGroup>
