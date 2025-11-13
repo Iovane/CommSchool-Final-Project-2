@@ -1,12 +1,12 @@
-﻿using System.Data;
-using CommSchool_Final_Project_2.Data;
+﻿using CommSchool_Final_Project_2.Data;
+using CommSchool_Final_Project_2.DTOs;
 using FluentValidation;
 
-namespace Homework_19.Validators;
+namespace CommSchool_Final_Project_2.Validators;
 
-public class UserValidator : AbstractValidator<User>
+public class RegisterUserValidator : AbstractValidator<RegisterUserDto>
 {
-    public UserValidator()
+    public RegisterUserValidator()
     {
         RuleFor(p => p.Firstname)
             .NotEmpty()

@@ -11,11 +11,11 @@ public class User
     public string Mail { get; set; }
     public double MonthlyIncome { get; set; }
     public bool IsBlocked { get; set; }
-    public string Role { get; set; }
+    public string Role { get; set; } = UserRole.User;
     public List<Loan> Loan { get; set; } = [];
 }
 
-public static class Role
+public static class UserRole
 {
     public const string Admin = "Admin";
     public const string User = "User";
