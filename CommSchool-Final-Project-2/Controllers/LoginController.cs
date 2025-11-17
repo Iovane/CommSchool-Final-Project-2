@@ -1,4 +1,5 @@
 ﻿using CommSchool_Final_Project_2.DTOs;
+using CommSchool_Final_Project_2.Helpers;
 using CommSchool_Final_Project_2.Interfaces;
 using Homework_19.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -26,13 +27,12 @@ public class LoginController : Controller
         var user = _userService.Login(loginUser);
         if (user is null) return BadRequest(new {message = "Invalid username or password"});
         
-        // var token = GenerateToken.GetToken(user, _appSettings.Secret);
+        var token = GenerateToken.GetToken(user, _appSettings.Secret);
         
         return Ok(
             new
             {
-                message = "log in successful"
-                // token = token
+                token = token
             }
         );
     }

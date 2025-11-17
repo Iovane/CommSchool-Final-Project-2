@@ -21,10 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Helpers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\CommSchool-Final-Project-2.Domain\CommSchool-Final-Project-2.Domain.csproj" />
     </ItemGroup>
 
