@@ -1,7 +1,8 @@
 ﻿namespace CommSchool_Final_Project_2.Data;
 
-public class LoanType
+public enum LoanType
 {
-    public int Id { get; set; }
-    public string Type { get; set; }
+    FastConsumer,
+    Auto,
+    Installment
 }

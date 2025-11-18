@@ -38,6 +38,7 @@ public class UserService : IUserService
         var user = _context.Users
             .FirstOrDefault(u => u.Username == loginModel.Username);
         
+        if (user is null) return null;
         var isPasswordValid = BCrypt.Net.BCrypt.Verify(loginModel.Password, user?.Password);
         
         return isPasswordValid ? user : null;

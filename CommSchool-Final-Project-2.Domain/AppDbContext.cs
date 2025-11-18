@@ -10,7 +10,16 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
-    public DbSet<LoanType> LoanTypes { get; set; }
     public DbSet<Loan> Loans { get; set; }
-    public DbSet<Status> Statuses { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Loan>()
+            .Property(l => l.LoanType)
+            .HasConversion<string>();
+
+        modelBuilder.Entity<Loan>()
+            .Property(l => l.Status)
+            .HasConversion<string>();
+    }
 }

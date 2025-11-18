@@ -17,6 +17,6 @@ public class User
 
 public static class UserRole
 {
-    public const string Admin = "Admin";
+    public const string Accountant = "Accountant";
     public const string User = "User";
 }

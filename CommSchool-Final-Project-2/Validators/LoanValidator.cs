@@ -7,10 +7,6 @@ public class LoanValidator : AbstractValidator<Loan>
 {
     public LoanValidator()
     {
-        RuleFor(l => l.LoanTypeId)
-            .GreaterThan(0)
-            .WithMessage("LoanTypeId must be greater than 0");
-
         RuleFor(l => l.Amount)
             .GreaterThan(0)
             .WithMessage("Loan amount must be greater than 0");
