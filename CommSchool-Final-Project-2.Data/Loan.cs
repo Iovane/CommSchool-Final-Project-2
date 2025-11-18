@@ -7,6 +7,8 @@ public class Loan
     public double Amount { get; set; }
     public string Currency { get; set; }
     public int Term { get; set; }
+    public double InterestRate { get; set; }
+    public double MonthlyPayment { get; set; }
     public Status Status { get; set; } = Status.InProgress;
     public int UserId { get; set; }
 }
