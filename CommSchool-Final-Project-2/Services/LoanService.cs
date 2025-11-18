@@ -18,7 +18,7 @@ public class LoanService : ILoanService
     public Loan RequestLoan(RequestedLoanDto requestedLoanDto, string? userId)
     {
         var userIncome = _context.Users.Find(Convert.ToInt32(userId))?.MonthlyIncome ?? 0;
-        var loan = LOS.CalculateLoan(userIncome, requestedLoanDto.LoanType, requestedLoanDto.Term, userId);
+        var loan = LoanOriginationSystem.CalculateLoan(userIncome, requestedLoanDto.LoanType, requestedLoanDto.Term, userId);
         
         _context.Loans.Add(loan);
         _context.SaveChanges();

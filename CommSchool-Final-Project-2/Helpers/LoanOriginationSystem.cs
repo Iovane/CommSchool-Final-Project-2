@@ -2,7 +2,7 @@
 
 namespace CommSchool_Final_Project_2.Helpers;
 
-public class LOS
+public class LoanOriginationSystem
 {
     public static Loan CalculateLoan(double monthlyIncome, LoanType loanType, int term, string? userId)
     {
