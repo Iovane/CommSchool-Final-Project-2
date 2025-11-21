@@ -15,7 +15,7 @@ public class LoanService : ILoanService
         _context = context;
     }
 
-    public Loan RequestLoan(RequestedLoanDto requestedLoanDto, string? userId)
+    public Loan RequestLoan(RequestedLoanDto requestedLoanDto, string userId)
     {
         var userIncome = _context.Users.Find(Convert.ToInt32(userId))?.MonthlyIncome ?? 0;
         var loan = LoanOriginationSystem.CalculateLoan(userIncome, requestedLoanDto.LoanType, requestedLoanDto.Term, userId);
@@ -26,9 +26,11 @@ public class LoanService : ILoanService
         return loan;
     }
 
-    public List<Loan> GetLoans()
+    public List<Loan> GetLoans(string userId)
     {
-        throw new NotImplementedException();
+        var loans = _context.Loans.Where(loan => loan.UserId == Convert.ToInt32(userId)).ToList();
+        
+        return loans;
     }
 
     public Loan UpdateLoan(Loan updatedLoan)

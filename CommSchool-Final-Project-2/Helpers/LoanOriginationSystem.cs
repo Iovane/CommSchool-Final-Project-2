@@ -16,12 +16,9 @@ public class LoanOriginationSystem
 
         loan.InterestRate = loanType switch
         {
-            LoanType.FastConsumer => 2
-            ,
-            LoanType.Installment => 0.7
-            ,
-            LoanType.Auto => 1.5
-            ,
+            LoanType.FastConsumer => 2,
+            LoanType.Installment => 0.7,
+            LoanType.Auto => 1.5,
             _ => 0
         };
         
