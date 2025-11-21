@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics;
+using System.Net;
 using System.Text;
+using System.Text.Json;
+using CommSchool_Final_Project_2.Exceptions;
 using Serilog;
 
 namespace CommSchool_Final_Project_2.Middlewares;
@@ -50,9 +53,9 @@ public class RequestResponseLoggingMiddleware
         catch (Exception ex)
         {
             Log.Error(ex, "Unhandled exception occurred | TraceId: {TraceId} | Method: {Method} | Path: {Path} | Message: {Message}",
-                    traceId, 
-                    context.Request.Method, 
-                    context.Request.Path, 
+                    traceId,
+                    context.Request.Method,
+                    context.Request.Path,
                     ex.Message);
 
             context.Response.Body = originalBodyStream;
@@ -63,18 +66,26 @@ public class RequestResponseLoggingMiddleware
 
     private static async Task HandleExceptionAsync(HttpContext context, Exception exception, string traceId)
     {
+        var (statusCode, message) = exception switch
+        {
+            UserBlockedException => (HttpStatusCode.Forbidden, exception.Message),
+            UnauthorizedLoanAccessException => (HttpStatusCode.Forbidden, exception.Message),
+            UnauthorizedAccessException => (HttpStatusCode.Unauthorized, exception.Message),
+            LoanNotFoundException or UserNotFoundException => (HttpStatusCode.NotFound, exception.Message),
+            _ => (HttpStatusCode.InternalServerError, exception.Message)
+        };
+
         context.Response.ContentType = "application/json";
-        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        context.Response.StatusCode = (int)statusCode;
 
         var response = new
         {
-            error = "An unexpected error occurred.",
-            details = exception.Message,
+            message = message,
+            statusCode = (int)statusCode,
             traceId = traceId
         };
 
-        var json = System.Text.Json.JsonSerializer.Serialize(response);
-
+        var json = JsonSerializer.Serialize(response);
         await context.Response.WriteAsync(json);
     }
 }

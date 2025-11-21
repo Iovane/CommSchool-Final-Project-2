@@ -4,7 +4,7 @@ namespace CommSchool_Final_Project_2.Helpers;
 
 public class LoanOriginationSystem
 {
-    public static Loan CalculateLoan(double monthlyIncome, LoanType loanType, int term, string? userId)
+    public static Loan CalculateLoan(double monthlyIncome, LoanType loanType, int term, int userId)
     {
         var loan = new Loan
         {

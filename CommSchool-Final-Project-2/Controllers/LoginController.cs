@@ -25,7 +25,6 @@ public class LoginController : Controller
     public IActionResult Login([FromBody] LoginUserDto loginUser)
     {
         var user = _userService.Login(loginUser);
-        if (user is null) return BadRequest(new {message = "Invalid username or password"});
         
         var token = GenerateToken.GetToken(user, _appSettings.Secret);
         

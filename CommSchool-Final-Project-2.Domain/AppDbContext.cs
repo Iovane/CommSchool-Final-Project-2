@@ -21,5 +21,11 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Loan>()
             .Property(l => l.Status)
             .HasConversion<string>();
+
+        modelBuilder.Entity<Loan>()
+            .HasOne<User>()
+            .WithMany()
+            .HasForeignKey(l => l.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

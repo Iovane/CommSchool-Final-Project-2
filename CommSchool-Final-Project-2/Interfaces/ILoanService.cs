@@ -5,8 +5,9 @@ namespace CommSchool_Final_Project_2.Interfaces;
 
 public interface ILoanService
 {
-    Loan RequestLoan(RequestedLoanDto loanDto, string userId);
-    List<Loan> GetLoans(string userId);
-    Loan UpdateLoan(Loan updatedLoan);
-    bool DeleteLoan(int loanId);
+    Loan RequestLoan(RequestedLoanDto loanDto, int userId);
+    List<Loan> GetLoans(int userId, string userRole);
+    Loan GetLoan(int loanId, int userId, string userRole);
+    Loan UpdateLoan(LoanDto updatedLoan, int loanId, int userId, string userRole);
+    void DeleteLoan(int loanId, int userId, string userRole);
 }

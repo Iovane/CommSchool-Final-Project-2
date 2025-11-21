@@ -24,7 +24,7 @@ public class RegisterController : Controller
         return Ok(new
         {
             message = "User registered successfully",
-            usernameForLogin = registeredUser?.Username
+            usernameForLogin = registeredUser.Username
         });
     }
 }

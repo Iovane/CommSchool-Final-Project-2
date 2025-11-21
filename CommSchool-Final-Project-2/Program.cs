@@ -47,6 +47,8 @@ public class Program
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
         builder.Services.AddScoped<IUserService, UserService>();
         builder.Services.AddScoped<ILoanService, LoanService>();
 
