@@ -1,6 +1,4 @@
-﻿using CommSchool_Final_Project_2.Data;
-
-namespace CommSchool_Final_Project_2.Interfaces;
+﻿namespace CommSchool_Final_Project_2.Interfaces;
 
 public interface ICurrentUserService
 {

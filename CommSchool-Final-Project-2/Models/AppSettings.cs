@@ -1,4 +1,4 @@
-﻿namespace Homework_19.Models;
+﻿namespace CommSchool_Final_Project_2.Models;
 
 public class AppSettings
 {

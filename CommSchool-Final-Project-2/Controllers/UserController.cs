@@ -1,5 +1,4 @@
-﻿using CommSchool_Final_Project_2.Data;
-using CommSchool_Final_Project_2.Interfaces;
+﻿using CommSchool_Final_Project_2.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

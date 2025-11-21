@@ -1,5 +1,4 @@
-﻿using CommSchool_Final_Project_2.Data;
-using CommSchool_Final_Project_2.DTOs;
+﻿using CommSchool_Final_Project_2.DTOs;
 using FluentValidation;
 
 namespace CommSchool_Final_Project_2.Validators;

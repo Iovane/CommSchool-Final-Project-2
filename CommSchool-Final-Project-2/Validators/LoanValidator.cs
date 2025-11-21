@@ -1,7 +1,7 @@
 ﻿using CommSchool_Final_Project_2.Data;
 using FluentValidation;
 
-namespace Homework_19.Validators;
+namespace CommSchool_Final_Project_2.Validators;
 
 public class LoanValidator : AbstractValidator<Loan>
 {
@@ -22,5 +22,19 @@ public class LoanValidator : AbstractValidator<Loan>
             .WithMessage("Loan term must be greater than 0")
             .LessThanOrEqualTo(360)
             .WithMessage("Loan term cannot exceed 360 months");
+        
+        RuleFor(l => l.InterestRate)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Interest rate must be greater than or equal to 0");
+
+        RuleFor(l => l.MonthlyPayment)
+            .GreaterThan(0)
+            .WithMessage("Monthly payment must be greater than 0");
+        
+        RuleFor(l => l.Status)
+            .NotNull()
+            .WithMessage("Status is required")
+            .IsInEnum()
+            .WithMessage("Invalid status, must be one of: InProgress, Approved, Rejected");
     }
 }

@@ -1,7 +1,7 @@
 ﻿using CommSchool_Final_Project_2.DTOs;
 using CommSchool_Final_Project_2.Helpers;
 using CommSchool_Final_Project_2.Interfaces;
-using Homework_19.Models;
+using CommSchool_Final_Project_2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
