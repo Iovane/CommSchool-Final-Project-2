@@ -1,9 +1,9 @@
-﻿using CommSchool_Final_Project_2.Data;
+﻿using CommSchool_Final_Project_2.DTOs;
 using FluentValidation;
 
 namespace CommSchool_Final_Project_2.Validators;
 
-public class LoanValidator : AbstractValidator<Loan>
+public class LoanValidator : AbstractValidator<LoanDto>
 {
     public LoanValidator()
     {

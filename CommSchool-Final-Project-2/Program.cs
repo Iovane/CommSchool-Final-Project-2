@@ -36,7 +36,7 @@ public class Program
         
         var configuration = builder.Configuration;
         var appSettingsSection = builder.Configuration.GetSection("AppSettings");
-        var appSettings = appSettingsSection.Get<AppSettings>();
+        var appSettings = appSettingsSection.Get<AppSettings>()!;
         
         builder.Services.Configure<AppSettings>(appSettingsSection);
         builder.Services.AddDbContext<AppDbContext>(options =>
@@ -63,7 +63,7 @@ public class Program
             .AddFluentValidationAutoValidation()
             .AddValidatorsFromAssemblyContaining<Program>();
         
-        var key = Encoding.ASCII.GetBytes(appSettings!.Secret);
+        var key = Encoding.ASCII.GetBytes(appSettings.Secret);
         builder.Services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

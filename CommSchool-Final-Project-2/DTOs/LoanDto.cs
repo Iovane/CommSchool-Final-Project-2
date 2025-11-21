@@ -4,10 +4,10 @@ namespace CommSchool_Final_Project_2.DTOs;
 
 public class LoanDto
 {
-    public double Amount { get; set; }
-    public string Currency { get; set; }
-    public int Term { get; set; }
-    public double InterestRate { get; set; }
-    public double MonthlyPayment { get; set; }
-    public Status Status { get; set; } = Status.InProgress;
+    public required double Amount { get; set; }
+    public required string Currency { get; set; }
+    public required int Term { get; set; }
+    public required double InterestRate { get; set; }
+    public required double MonthlyPayment { get; set; }
+    public required Status Status { get; set; } = Status.InProgress;
 }

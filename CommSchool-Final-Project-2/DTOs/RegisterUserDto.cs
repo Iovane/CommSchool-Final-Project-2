@@ -2,11 +2,11 @@
 
 public class RegisterUserDto
 {
-    public string Firstname { get; set; }
-    public string Lastname { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public int Age { get; set; }
-    public string Mail { get; set; }
-    public double MonthlyIncome { get; set; }
+    public required string Firstname { get; set; }
+    public required string Lastname { get; set; }
+    public required string Username { get; set; }
+    public required string Password { get; set; }
+    public required int Age { get; set; }
+    public required string Mail { get; set; }
+    public required double MonthlyIncome { get; set; }
 }
