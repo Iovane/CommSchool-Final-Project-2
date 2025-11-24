@@ -51,8 +51,8 @@ public class LoanController : Controller
         return Ok(loan);
     }
     
-    [HttpPost("update/loan/{loanId:int}")]
-    [EndpointDescription("Get loan for a user by loan id")]
+    [HttpPut("update/loan/{loanId:int}")]
+    [EndpointDescription("Update loan information  loan id")]
     public IActionResult UpdateLoan([FromBody] LoanDto updatedLoan, int loanId)
     {
         var userId = _currentUserService.UserId;
