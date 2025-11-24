@@ -18,6 +18,9 @@ public class UserService : IUserService
 
     public User RegisterUser(RegisterUserDto registerUser)
     {
+        if (_context.Users.Any(u => u.Username == registerUser.Username))
+            throw new UserAlreadyExistsException();
+        
         var user = new User
         {
             Firstname = registerUser.Firstname,

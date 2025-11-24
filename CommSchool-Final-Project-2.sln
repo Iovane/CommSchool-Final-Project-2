@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommSchool-Final-Project-2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommSchool-Final-Project-2.Domain", "CommSchool-Final-Project-2.Domain\CommSchool-Final-Project-2.Domain.csproj", "{95BD21C9-BD40-4312-A609-CC27C1991EBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6257413B-9B5F-40F2-AF08-72B5205B5605}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{95BD21C9-BD40-4312-A609-CC27C1991EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95BD21C9-BD40-4312-A609-CC27C1991EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95BD21C9-BD40-4312-A609-CC27C1991EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6257413B-9B5F-40F2-AF08-72B5205B5605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6257413B-9B5F-40F2-AF08-72B5205B5605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6257413B-9B5F-40F2-AF08-72B5205B5605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6257413B-9B5F-40F2-AF08-72B5205B5605}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

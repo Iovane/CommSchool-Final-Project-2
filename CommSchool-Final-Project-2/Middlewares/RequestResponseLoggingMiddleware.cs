@@ -71,6 +71,7 @@ public class RequestResponseLoggingMiddleware
             UserBlockedException => (HttpStatusCode.Forbidden, exception.Message),
             UnauthorizedLoanAccessException => (HttpStatusCode.Forbidden, exception.Message),
             UnauthorizedAccessException => (HttpStatusCode.Unauthorized, exception.Message),
+            UserAlreadyExistsException => (HttpStatusCode.Conflict, exception.Message),
             LoanNotFoundException or UserNotFoundException => (HttpStatusCode.NotFound, exception.Message),
             _ => (HttpStatusCode.InternalServerError, exception.Message)
         };
