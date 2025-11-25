@@ -123,28 +123,17 @@ public class UserServiceTests
         Assert.Throws<UserNotFoundException>(() => _userService.GetUserInfo(99));
     }
     
-    [Fact]
-    public void GetUserById_UserRole_ThrowsException()
-    {
-        Assert.Throws<UnauthorizedAccessException>(() => _userService.GetUserById(1, UserRole.User));
-    }
     
     [Fact]
-    public void GetUserById_AccountantRole_ThrowsException()
+    public void GetUserById_GetUser_Success()
     {
         _context.Users.Add(new User { Id = 1, Role = UserRole.User });
         _context.SaveChanges();
-        var user = _userService.GetUserById(1, UserRole.Accountant);
+        var user = _userService.GetUserById(1);
         
         user.Should().NotBeNull();
         user.Id.Should().Be(1);
         user.Role.Should().Be(UserRole.User);
-    }
-    
-    [Fact]
-    public void BlockUser_UserRole_ThrowsException()
-    {
-        Assert.Throws<UnauthorizedAccessException>(() => _userService.BlockUser(1, UserRole.User));
     }
 
     [Fact]
@@ -152,17 +141,11 @@ public class UserServiceTests
     {
         _context.Users.Add(new User { Id = 1, Role = UserRole.User, IsBlocked = false });
         _context.SaveChanges();
-        _userService.BlockUser(1, UserRole.Accountant);
+        _userService.BlockUser(1);
         var user = _context.Users.FirstOrDefault(u => u.Id == 1);
         
         user.Should().NotBeNull();
         user.IsBlocked.Should().BeTrue();
-    }
-    
-    [Fact]
-    public void UnblockUser_UserRole_ThrowsException()
-    {
-        Assert.Throws<UnauthorizedAccessException>(() => _userService.UnblockUser(1, UserRole.User));
     }
 
     [Fact]
@@ -170,7 +153,7 @@ public class UserServiceTests
     {
         _context.Users.Add(new User { Id = 1, Role = UserRole.User, IsBlocked = true });
         _context.SaveChanges();
-        _userService.UnblockUser(1, UserRole.Accountant);
+        _userService.UnblockUser(1);
         var user = _context.Users.FirstOrDefault(u => u.Id == 1);
         
         user.Should().NotBeNull();

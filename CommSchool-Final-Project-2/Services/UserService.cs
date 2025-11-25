@@ -57,22 +57,16 @@ public class UserService : IUserService
         return user ?? throw new UserNotFoundException();
     }
 
-    public User GetUserById(int id, string userRole)
+    public User GetUserById(int id)
     {
-        if (userRole is not UserRole.Accountant)
-            throw new UnauthorizedAccessException(ExceptionMessages.UserNotAuthorized);
-        
         var user = _context.Users.Find(id);
         
         return user ?? throw new UserNotFoundException();
     }
 
-    public void BlockUser(int id, string userRole)
+    public void BlockUser(int id)
     {
-        if (userRole is not UserRole.Accountant)
-            throw new UnauthorizedAccessException(ExceptionMessages.UserNotAuthorized);
-        
-        var user = GetUserById(id, userRole);
+        var user = GetUserById(id);
         user.IsBlocked = true;
         
         _context.Users.Update(user);
@@ -80,12 +74,9 @@ public class UserService : IUserService
 
     }
 
-    public void UnblockUser(int id, string userRole)
+    public void UnblockUser(int id)
     {
-        if (userRole is not UserRole.Accountant)
-            throw new UnauthorizedAccessException(ExceptionMessages.UserNotAuthorized);
-        
-        var user = GetUserById(id, userRole);
+        var user = GetUserById(id);
         user.IsBlocked = false;
         
         _context.Users.Update(user);

@@ -29,32 +29,33 @@ public class UserController : Controller
         return Ok(user);
     }
     
+    [Authorize(Roles = "Accountant")]
     [HttpGet("get/userInfo/{userId:int}")]
     [EndpointDescription("Get user info by id")]
     public IActionResult GetUserInfoById(int userId)
     {
-        var userRole = _currentUserService.Role;
-        var user = _userService.GetUserById(userId, userRole);
+        var user = _userService.GetUserById(userId);
         
         return Ok(user);
     }
     
+    [Authorize(Roles = "Accountant")]
     [HttpPost("blockUser/{userId:int}")]
     [EndpointDescription("Block user")]
     public IActionResult BlockUser(int userId)
     {
-        var userRole = _currentUserService.Role;
-        _userService.BlockUser(userId, userRole);
+        var useRole = _currentUserService.Role;
+        _userService.BlockUser(userId);
         
         return Ok(new {message = "User blocked successfully"});
     }
     
+    [Authorize(Roles = "Accountant")]
     [HttpPost("unblockUser/{userId:int}")]
     [EndpointDescription("Unblock user")]
     public IActionResult UnblockUser(int userId)
     {
-        var userRole = _currentUserService.Role;
-        _userService.UnblockUser(userId, userRole);
+        _userService.UnblockUser(userId);
         
         return Ok(new {message = "User unblocked successfully"});
     }
