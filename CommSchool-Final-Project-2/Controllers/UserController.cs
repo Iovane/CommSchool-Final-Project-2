@@ -24,7 +24,7 @@ public class UserController : Controller
     public IActionResult GetUserInfo()
     {
         var userId = _currentUserService.UserId;
-        var user = _userService.GetUserInfo(userId);
+        var user = _userService.GetUserById(userId);
         
         return Ok(user);
     }

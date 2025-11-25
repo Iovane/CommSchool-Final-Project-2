@@ -50,13 +50,6 @@ public class UserService : IUserService
         return !isPasswordValid ? throw new UnauthorizedAccessException(ExceptionMessages.InvalidCredentials) : user;
     }
 
-    public User GetUserInfo(int id)
-    {
-        var user = _context.Users.Find(id);
-       
-        return user ?? throw new UserNotFoundException();
-    }
-
     public User GetUserById(int id)
     {
         var user = _context.Users.Find(id);

@@ -7,7 +7,6 @@ public interface IUserService
 {
     User Login(LoginUserDto model);
     User RegisterUser(RegisterUserDto registerUser);
-    User GetUserInfo(int id);
     User GetUserById(int id);
     void BlockUser(int id);
     void UnblockUser(int id);
