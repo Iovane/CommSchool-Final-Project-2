@@ -110,7 +110,7 @@ public class UserServiceTests
         _context.Users.Add(new User { Id = 1, Mail = "test@example.com" });
         _context.SaveChanges();
 
-        var user = _userService.GetUserInfo(1);
+        var user = _userService.GetUserById(1);
 
         user.Should().NotBeNull();
         user.Id.Should().Be(1);
@@ -120,7 +120,7 @@ public class UserServiceTests
     [Fact]
     public void GetUserInfo_NotFound_ThrowsException()
     {
-        Assert.Throws<UserNotFoundException>(() => _userService.GetUserInfo(99));
+        Assert.Throws<UserNotFoundException>(() => _userService.GetUserById(99));
     }
     
     
