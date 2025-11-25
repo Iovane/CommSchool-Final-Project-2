@@ -8,7 +8,7 @@ public class RequestedLoanValidator : AbstractValidator<RequestedLoanDto>
     public RequestedLoanValidator()
     {
         RuleFor(l => l.LoanType)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("Loan type is required")
             .IsInEnum()
             .WithMessage("Invalid loan type, must be one of: FastConsumer, Auto, Installment");
