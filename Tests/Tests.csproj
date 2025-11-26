@@ -23,10 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\CommSchool-Final-Project-2\CommSchool-Final-Project-2.csproj" />
     </ItemGroup>
 
